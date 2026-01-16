@@ -3,6 +3,7 @@ import { createClient } from "@supabase/supabase-js";
 import { scrapeProduct } from "@/lib/firecrawl";
 import { sendPriceDropAlert } from "@/lib/email";
 
+export const runtime = "nodejs";
 export async function POST(request) {
   try {
     const authHeader = request.headers.get("authorization");
