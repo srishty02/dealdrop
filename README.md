@@ -77,12 +77,7 @@ npm run dev
 🔗 **Live Demo:** [https://trydealdrop.vercel.app/](https://trydealdrop.vercel.app/)
 ---
 
-## 📸 Screenshots
 
-<p align="center">
-  <img src="./screenshots/home.png" alt="DealDrop home page" width="48%" />
-  <img src="./screenshots/dashboard.png" alt="DealDrop tracked products and price chart" width="48%" />
-</p>
 
 
 ## 👩‍💻 Author
