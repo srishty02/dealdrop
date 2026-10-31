@@ -48,6 +48,13 @@ I built this to learn how to combine AI-powered web scraping, authentication, a 
 4. A secured endpoint (`POST /api/cron/check-prices`, protected by a secret token) re-scrapes every tracked product.
 5. If a price dropped, the user gets an email through **Resend**.
 
+## 📸 Screenshots
+
+<p align="center">
+  <img src="./screenshots/home.png" alt="DealDrop home page" width="48%" />
+  <img src="./screenshots/signin.png" alt="Sign in with Google" width="48%" />
+</p>
+
 ## 🚀 Run Locally
 
 ```bash
