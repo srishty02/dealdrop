@@ -14,13 +14,6 @@
 
 ---
 
-## 📸 Screenshots
-
-<p align="center">
-  <img src="./screenshots/home.png" alt="DealDrop home page" width="48%" />
-  <img src="./screenshots/signin.png" alt="Sign in with Google" width="48%" />
-</p>
-
 ## 📖 About
 
 DealDrop is a full-stack price tracking app. Paste a product link from an e-commerce site, and DealDrop extracts the product name, price, currency and image, saves it to your account and keeps track of how the price changes over time. A scheduled price check runs in the background and emails you when a tracked product gets cheaper.
