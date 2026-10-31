@@ -1,36 +1,89 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<p align="center">
+  <img src="./public/deal-drop-logo.png" alt="DealDrop logo" height="70" />
+</p>
 
-## Getting Started
+<h3 align="center">Never miss a price drop.</h3>
 
-First, run the development server:
+<p align="center">
+  Track prices from any e-commerce site and get an email alert the moment a price falls.
+</p>
+
+<p align="center">
+  <a href="https://trydealdrop.vercel.app/"><img src="https://img.shields.io/badge/Live%20Demo-trydealdrop.vercel.app-FA5D19?style=for-the-badge&logo=vercel&logoColor=white"></a>
+</p>
+
+---
+
+## 📸 Screenshots
+
+<p align="center">
+  <img src="./screenshots/home.png" alt="DealDrop home page" width="48%" />
+  <img src="./screenshots/signin.png" alt="Sign in with Google" width="48%" />
+</p>
+
+## 📖 About
+
+DealDrop is a full-stack price tracking app. Paste a product link from an e-commerce site, and DealDrop extracts the product name, price, currency and image, saves it to your account and keeps track of how the price changes over time. A scheduled price check runs in the background and emails you when a tracked product gets cheaper.
+
+I built this to learn how to combine AI-powered web scraping, authentication, a database and automated background jobs in one Next.js application.
+
+## ✨ Features
+
+- 🔐 Sign in with Google using Supabase Auth, with each user's products kept private
+- 🔗 Add any product URL; details are extracted automatically with Firecrawl
+- 📈 Price history chart for every tracked product
+- 🔔 Automated price checks with an email alert when the price drops (includes old price, new price and percentage drop)
+- 🗑️ Add, view and remove tracked products from one dashboard
+
+## 🛠️ Tech Stack
+
+| Area | Technology |
+|---|---|
+| Framework | Next.js (App Router), React |
+| Styling | Tailwind CSS, shadcn/ui, Radix UI |
+| Database & Auth | Supabase (PostgreSQL), Google OAuth |
+| Web scraping | Firecrawl API |
+| Email alerts | Resend |
+| Charts | Recharts |
+| Deployment | Vercel |
+
+## ⚙️ How It Works
+
+1. The user signs in with Google and pastes a product URL.
+2. A server action sends the URL to **Firecrawl**, which returns the product name, price, currency and image.
+3. The product is saved in **Supabase**, and each price change is stored in a `price_history` table.
+4. A secured endpoint (`POST /api/cron/check-prices`, protected by a secret token) re-scrapes every tracked product.
+5. If a price dropped, the user gets an email through **Resend**.
+
+## 🚀 Run Locally
+
+```bash
+git clone https://github.com/srishty02/dealdrop.git
+cd dealdrop
+npm install
+```
+
+Create a `.env.local` file in the root folder:
+
+```env
+NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
+SUPABASE_SERVICE_ROLE_KEY=your_supabase_service_role_key
+FIRECRAWL_API_KEY=your_firecrawl_api_key
+RESEND_API_KEY=your_resend_api_key
+RESEND_FROM_EMAIL=your_verified_sender_email
+CRON_SECRET=any_random_secret_string
+```
+
+Start the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## 👩‍💻 Author
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+**Srishty Kumari**
+[LinkedIn](https://www.linkedin.com/in/srishty-kumari-14b56b272/) · [GitHub](https://github.com/srishty02) · srishty0208@gmail.com
