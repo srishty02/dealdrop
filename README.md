@@ -1,109 +1,89 @@
-<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&height=220&color=0:0E75B6,100:6C63FF&text=Srishty%20Kumari&fontColor=ffffff&fontSize=60&fontAlignY=36&desc=Software%20Developer%20%7C%20CSE%20Graduate%20%7C%20AI%2FML%20Enthusiast&descSize=18&descAlignY=58&animation=fadeIn" />
-
-<!-- <p align="center">
-  <a href="https://github.com/srishty02">
-    <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=24&duration=3000&pause=1000&color=6C63FF&center=true&vCenter=true&width=700&height=50&lines=Hi%2C+I'm+Srishty+%F0%9F%91%8B;Python+%7C+Django+%7C+Java+%7C+SQL+%7C+Scikit-learn;Full-Stack+%7C+Backend+%7C+Data+Roles;%F0%9F%9A%80+Open+to+Work" alt="Typing animation" />
-  </a>
-</p> -->
-
 <p align="center">
-  <img src="https://img.shields.io/badge/%F0%9F%9F%A2%20Open%20to%20Work-Full--Stack%20%7C%20Backend%20%7C%20Data-2ea44f?style=for-the-badge">
+  <img src="./public/deal-drop-logo.png" alt="DealDrop logo" height="70" />
 </p>
 
-<h1 align="center">Srishty Kumari</h1>
+<h3 align="center">Never miss a price drop.</h3>
+
+<p align="center">
+  Track prices from any e-commerce site and get an email alert the moment a price falls.
 </p>
 
 <p align="center">
-  🎓 <b>B.Tech in Computer Science Engineering</b><br>
-  Banasthali Vidyapith · Graduated June 2026 · CGPA: 7.90
-</p>
-
-<p align="center">
-  <img src="https://img.shields.io/badge/%F0%9F%9F%A2%20Open%20to%20Work-Full--Stack%20%7C%20Backend%20%7C%20Data-2ea44f?style=for-the-badge">
-</p>
-
-<p align="center">
-  <a href="https://www.linkedin.com/in/srishty-kumari-14b56b272/"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white"></a>
-  <a href="mailto:srishty0208@gmail.com"><img src="https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white"></a>
-  <a href="https://github.com/srishty02"><img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white"></a>
-  <a href="https://leetcode.com/u/srishty_02/"><img src="https://img.shields.io/badge/LeetCode-FFA116?style=for-the-badge&logo=leetcode&logoColor=black"></a>
-  <img src="https://komarev.com/ghpvc/?username=srishty02&label=Profile%20views&color=6C63FF&style=for-the-badge">
+  <a href="https://trydealdrop.vercel.app/"><img src="https://img.shields.io/badge/Live%20Demo-trydealdrop.vercel.app-FA5D19?style=for-the-badge&logo=vercel&logoColor=white"></a>
 </p>
 
 ---
 
-## 👩‍💻 About Me
+## 📸 Screenshots
 
-I'm a Computer Science graduate interested in software development, problem-solving and building practical applications. Through my internship at CRIS and personal projects, I've gained hands-on exposure to application development, databases, testing and machine learning.
+<p align="center">
+  <img src="./screenshots/home.png" alt="DealDrop home page" width="48%" />
+  <img src="./screenshots/signin.png" alt="Sign in with Google" width="48%" />
+</p>
 
-```text
-📍 Mumbai / Navi Mumbai  →  open to Bangalore, Pune & other tech hubs
-🔭 Looking for: Full-Stack · Backend · Data roles
-🌱 Learning: DSA · Software Engineering Fundamentals · GenAI & LLMs
-🧩 Practicing problem-solving on LeetCode
+## 📖 About
+
+DealDrop is a full-stack price tracking app. Paste a product link from an e-commerce site, and DealDrop extracts the product name, price, currency and image, saves it to your account and keeps track of how the price changes over time. A scheduled price check runs in the background and emails you when a tracked product gets cheaper.
+
+I built this to learn how to combine AI-powered web scraping, authentication, a database and automated background jobs in one Next.js application.
+
+## ✨ Features
+
+- 🔐 Sign in with Google using Supabase Auth, with each user's products kept private
+- 🔗 Add any product URL; details are extracted automatically with Firecrawl
+- 📈 Price history chart for every tracked product
+- 🔔 Automated price checks with an email alert when the price drops (includes old price, new price and percentage drop)
+- 🗑️ Add, view and remove tracked products from one dashboard
+
+## 🛠️ Tech Stack
+
+| Area | Technology |
+|---|---|
+| Framework | Next.js (App Router), React |
+| Styling | Tailwind CSS, shadcn/ui, Radix UI |
+| Database & Auth | Supabase (PostgreSQL), Google OAuth |
+| Web scraping | Firecrawl API |
+| Email alerts | Resend |
+| Charts | Recharts |
+| Deployment | Vercel |
+
+## ⚙️ How It Works
+
+1. The user signs in with Google and pastes a product URL.
+2. A server action sends the URL to **Firecrawl**, which returns the product name, price, currency and image.
+3. The product is saved in **Supabase**, and each price change is stored in a `price_history` table.
+4. A secured endpoint (`POST /api/cron/check-prices`, protected by a secret token) re-scrapes every tracked product.
+5. If a price dropped, the user gets an email through **Resend**.
+
+## 🚀 Run Locally
+
+```bash
+git clone https://github.com/srishty02/dealdrop.git
+cd dealdrop
+npm install
 ```
 
-## 💼 Experience
+Create a `.env.local` file in the root folder:
 
-**Python Developer Intern** — Centre for Railway Information Systems (CRIS), Delhi
-*July 2025 – December 2025*
+```env
+NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
+SUPABASE_SERVICE_ROLE_KEY=your_supabase_service_role_key
+FIRECRAWL_API_KEY=your_firecrawl_api_key
+RESEND_API_KEY=your_resend_api_key
+RESEND_FROM_EMAIL=your_verified_sender_email
+CRON_SECRET=any_random_secret_string
+```
 
-- Worked on application development using Python
-- Gained hands-on exposure to databases and testing
-- Applied machine learning concepts in practical work
+Start the development server:
 
-## 🚀 Projects
+```bash
+npm run dev
+```
 
-<table>
-  <tr>
-    <td width="33%" valign="top">
-      <h3>💸 DealDrop</h3>
-      Price tracker with automated price checks and email alerts.<br><br>
-      <img src="https://img.shields.io/badge/Firecrawl-FF6B35?style=flat-square">
-      <img src="https://img.shields.io/badge/Supabase-3ECF8E?style=flat-square&logo=supabase&logoColor=white"><br><br>
-      <a href="https://github.com/srishty02/REPO-NAME">🔗 View Project</a>
-    </td>
-    <td width="33%" valign="top">
-      <h3>🩺 Disease Prediction</h3>
-      ML app predicting diabetes and Parkinson's, deployed on Render.<br><br>
-      <img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white">
-      <img src="https://img.shields.io/badge/Scikit--learn-F7931E?style=flat-square&logo=scikitlearn&logoColor=white"><br><br>
-      <a href="https://github.com/srishty02/REPO-NAME">🔗 View Project</a>
-    </td>
-    <td width="33%" valign="top">
-      <h3>🎫 Support CRM</h3>
-      Support ticket management and organization app.<br><br>
-      <img src="https://img.shields.io/badge/Django-092E20?style=flat-square&logo=django&logoColor=white">
-      <img src="https://img.shields.io/badge/PostgreSQL-4169E1?style=flat-square&logo=postgresql&logoColor=white"><br><br>
-      <a href="https://github.com/srishty02/REPO-NAME">🔗 View Project</a>
-    </td>
-  </tr>
-</table>
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-## 🛠️ Technical Skills
+## 👩‍💻 Author
 
-<p align="center">
-  <img src="https://skillicons.dev/icons?i=python,java,js,html,css,django,postgres,git,github,postman&perline=10" />
-</p>
-
-<p align="center">
-  <img src="https://img.shields.io/badge/SQL-4479A1?style=flat-square&logo=postgresql&logoColor=white">
-  <img src="https://img.shields.io/badge/Scikit--learn-F7931E?style=flat-square&logo=scikitlearn&logoColor=white">
-  <img src="https://img.shields.io/badge/Supabase-3ECF8E?style=flat-square&logo=supabase&logoColor=white">
-</p>
-
-## 📊 GitHub Stats
-
-<p align="center">
-  <img height="170" src="https://github-readme-stats.vercel.app/api?username=srishty02&show_icons=true&theme=tokyonight&hide_border=true&bg_color=0d1117" />
-  <img height="170" src="https://github-readme-stats.vercel.app/api/top-langs/?username=srishty02&layout=compact&theme=tokyonight&hide_border=true&bg_color=0d1117" />
-</p>
-
-## 📫 Let's Connect
-
-<p align="center">
-  Open to opportunities in <b>Bangalore · Pune · Mumbai</b> and other tech hubs.<br>
-  📧 <b>srishty0208@gmail.com</b> &nbsp;|&nbsp; <a href="https://www.linkedin.com/in/srishty-kumari-14b56b272/">LinkedIn</a> &nbsp;|&nbsp; <a href="https://leetcode.com/u/srishty_02/">LeetCode</a>
-</p>
-
-<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&height=120&color=0:6C63FF,100:0E75B6&section=footer" />
+**Srishty Kumari**
+[LinkedIn](https://www.linkedin.com/in/srishty-kumari-14b56b272/) · [GitHub](https://github.com/srishty02) · srishty0208@gmail.com
