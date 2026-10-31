@@ -11,7 +11,7 @@
 <!-- <p align="center">
   <a href="https://trydealdrop.vercel.app/"><img src="https://img.shields.io/badge/Live%20Demo-trydealdrop.vercel.app-FA5D19?style=for-the-badge&logo=vercel&logoColor=white"></a>
 </p> -->
-🔗 **Live Demo:** [https://trydealdrop.vercel.app/](https://trydealdrop.vercel.app/)
+
 
 ---
 
@@ -74,8 +74,7 @@ Start the development server:
 ```bash
 npm run dev
 ```
-
-Open [http://localhost:3000](http://localhost:3000) in your browser.
+🔗 **Live Demo:** [https://trydealdrop.vercel.app/](https://trydealdrop.vercel.app/)
 
 ## 👩‍💻 Author
 
