@@ -8,18 +8,12 @@
   Track prices from any e-commerce site and get an email alert the moment a price falls.
 </p>
 
-<p align="center">
+<!-- <p align="center">
   <a href="https://trydealdrop.vercel.app/"><img src="https://img.shields.io/badge/Live%20Demo-trydealdrop.vercel.app-FA5D19?style=for-the-badge&logo=vercel&logoColor=white"></a>
-</p>
+</p> -->
+🔗 **Live Demo:** [https://trydealdrop.vercel.app/](https://trydealdrop.vercel.app/)
 
 ---
-
-## 📸 Screenshots
-
-<p align="center">
-  <img src="./screenshots/home.png" alt="DealDrop home page" width="48%" />
-  <img src="./screenshots/signin.png" alt="Sign in with Google" width="48%" />
-</p>
 
 ## 📖 About
 
